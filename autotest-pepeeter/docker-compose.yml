@@ -1,8 +1,0 @@
-
-services:
-  tester:
-    image: tester
-    volumes:
-      - .:/app
-    command: node wildberries.js
-

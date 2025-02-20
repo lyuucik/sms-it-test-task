@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "node wildberries.js"
+  },
   "dependencies": {
     "puppeteer": "^24.1.1"
   }

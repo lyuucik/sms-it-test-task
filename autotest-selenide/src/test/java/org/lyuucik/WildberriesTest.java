@@ -5,7 +5,7 @@ import org.lyuucik.config.Config;
 import org.lyuucik.pages.WildberriesMainPage;
 
 
-public class WildberriesTest {
+public class WildberriesTest extends WebHooks {
     @Test
     void show10Protractors() {
         var searchString = Config.getProperty("wildberries.search_string");
@@ -18,6 +18,6 @@ public class WildberriesTest {
 
         assert products.size() == 10;
 
-        System.out.println(products);
+        products.forEach(System.out::println);
     }
 }

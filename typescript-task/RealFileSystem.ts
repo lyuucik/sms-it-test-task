@@ -1,18 +1,20 @@
-import FileSystem from "./FileSystem";
+import fs from "fs";
+import FileSystem from "./intefaces/FileSystem";
+import path from "path";
+import { PathNotExistError } from "./errors/errors";
 
 export default class RealFileSystem implements FileSystem {
   exists(filePath: string): boolean {
     try {
       return fs.existsSync(filePath);
     } catch (error) {
-      console.error(`Ошибка при проверке существования пути: ${filePath}`, error);
       return false;
     }
   }
 
   getContent(dirPath: string): { folders: string[]; files: string[] } {
     if (!this.exists(dirPath)) {
-      throw new Error(`Папка не существует: ${dirPath}`);
+      throw new PathNotExistError(`${dirPath}`);
     }
 
     try {

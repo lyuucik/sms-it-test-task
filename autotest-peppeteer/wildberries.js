@@ -17,6 +17,8 @@ const puppeteer = require("puppeteer");
   await page.waitForSelector('li.filter__item.j-catalog-sort:nth-child(3)');
   await page.click('li.filter__item.j-catalog-sort:nth-child(3)');
 
+ await new Promise(resolve => setTimeout(resolve, 2000)); 
+
   const products = await page.evaluate(() => {
     return Array.from(document.querySelectorAll('.product-card'))
       .slice(0, 10)
