@@ -67,6 +67,11 @@ public class WildberriesMainPage {
         Double discountPrice = productElement.find(By.xpath(PRICE_DEL_XPATH)).exists()
                 ? extractPrice(productElement, PRICE_DEL_XPATH)
                 : null;
+        if(discountPrice != null) {
+          var tmp = price;
+          price = discountPrice;
+          discountPrice = tmp;
+        }
 
         return new Product(name, price, discountPrice);
     }
